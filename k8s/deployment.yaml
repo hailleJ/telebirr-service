@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telebirr-request
+  labels:
+    app: telebirr-request
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: telebirr-request
+  template:
+    metadata:
+      name: telebirr-request
+      labels:
+        app: telebirr-request
+    spec:
+      containers:
+        - name: telebirr-request
+          image: 172.17.91.104:5000/telebirr-request:0.0.1
+          imagePullPolicy: Always
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: telebirr-request
+spec:
+  selector:
+    app: telebirr-request
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: NodePort

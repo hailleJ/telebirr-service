@@ -1,0 +1,33 @@
+package io.alet.telebirr_request.constants;
+
+
+
+
+public class TelebirrMessagingValue {
+
+    public static final String ROUTING_KEY="key";
+    public static final String CREATE_MANDATE_REQUEST_QUEUE = "CREATE_MANDATE_REQUEST_QUEUE";
+    public static final String CREATE_MANDATE_REQUEST_EXCHANGE="CREATE_MANDATE_REQUEST_EXCHANGE";
+
+
+
+    public static final String CREATE_MANDATE_CALLBACK_QUEUE="CREATE_MANDATE_CALLBACK_QUEUE";
+    public static final String CREATE_MANDATE_CALLBACK_EXCHANGE="CREATE_MANDATE_CALLBACK_EXCHANGE";
+
+
+    public static final String CANCEL_MANDATE_REQUEST_QUEUE="CANCEL_MANDATE_REQUEST_QUEUE";
+    public static final String CANCEL_MANDATE_REQUEST_EXCHANGE="CANCEL_MANDATE_REQUEST_EXCHANGE";
+
+
+    public static final String CANCEL_MANDATE_CALLBACK_QUEUE="CANCEL_MANDATE_CALLBACK_QUEUE";
+    public static final String CANCEL_MANDATE_CALLBACK_EXCHANGE="CANCEL_MANDATE_CALLBACK_EXCHANGE";
+    public static final String QUERY_MANDATE_REQUEST_QUEUE="QUERY_MANDATE_REQUEST_QUEUE";
+    public static final String QUERY_MANDATE_REQUEST_EXCHANGE="QUERY_MANDATE_REQUEST_EXCHANGE";
+    public static final String QUERY_MANDATE_CALLBACK_QUEUE="QUERY_MANDATE_CALLBACK_QUEUE";
+    public static final String QUERY_MANDATE_CALLBACK_EXCHANGE="QUERY_MANDATE_CALLBACK_EXCHANGE";
+
+
+
+
+
+}
