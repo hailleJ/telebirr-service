@@ -5,7 +5,7 @@ pipeline {
 
         stage("Pull from github") {
           steps {
-              checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'PersonalPassword', url: 'https://github.com/hailleJ/telebirr-request/']])
+              checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'PersonalPassword', url: 'https://github.com/hailleJ/telebirr-service/']])
           }
         }
 
