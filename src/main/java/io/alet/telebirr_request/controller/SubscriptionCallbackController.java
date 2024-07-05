@@ -8,6 +8,7 @@ import io.alet.telebirr_request.util.XmlUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.xml.sax.SAXException;
@@ -30,7 +31,7 @@ public class SubscriptionCallbackController {
     private final RabbitTemplate rabbitTemplate;
 
     @RequestMapping("")
-    public void subCallback(String xml)  {
+    public void subCallback(@RequestBody String xml)  {
         rabbitTemplate.convertAndSend(CREATE_MANDATE_CALLBACK_EXCHANGE,ROUTING_KEY,getCallbackDTO(xml));
     }
 
