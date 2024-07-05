@@ -42,10 +42,12 @@ public class SubscriptionCallbackController {
             Map<String, String> header = XmlUtil.extract(xml, "res:Header");
             Map<String, String> body = XmlUtil.extract(xml, "res:Body");
 
+            body.forEach((s, s2) -> log.info("{}/{}",s,s2));
+
             SubscriptionCallbackDTO dto = new SubscriptionCallbackDTO();
             dto.setConversationId(header.get("res:conversationid"));
             dto.setResultDesc(body.get("res:resultdesc"));
-            dto.setResultType(body.get("res:resulttype"));
+            dto.setResultType(body.get("res:res:ResultCode"));
             dto.setResultCode(body.get("res:res:resultcode"));
 
             log.info("{} result code:: {}",dto.getConversationId(), dto.getResultCode());
