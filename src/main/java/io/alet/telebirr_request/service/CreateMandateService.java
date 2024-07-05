@@ -57,7 +57,7 @@ public class CreateMandateService {
                 "                    <req:CallerType>2</req:CallerType>\n" +
                 "                    <req:ThirdPartyID>" + properties.get(THIRD_PARTY_ID) + "</req:ThirdPartyID>\n" +
                 "                    <req:Password>" + properties.get(THIRD_PARTY_PASSWORD)+ "</req:Password>\n" +
-                "                    <req:ResultURL>" + properties.get(TELEBIRR_PROXY_URL)+ "/callback/subscription</req:ResultURL>\n" +
+                "                    <req:ResultURL>" + properties.get(TELEBIRR_PROXY_URL)+ "/telebirr/callback/subscription</req:ResultURL>\n" +
                 "                </req:Caller>\n" +
                 "                <req:KeyOwner>1</req:KeyOwner>\n" +
                 "                <req:Timestamp>"+timestamp+"</req:Timestamp>\n" +
