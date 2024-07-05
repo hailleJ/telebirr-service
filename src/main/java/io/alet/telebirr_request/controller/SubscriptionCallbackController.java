@@ -47,8 +47,8 @@ public class SubscriptionCallbackController {
             SubscriptionCallbackDTO dto = new SubscriptionCallbackDTO();
             dto.setConversationId(header.get("res:conversationid"));
             dto.setResultDesc(body.get("res:resultdesc"));
-            dto.setResultType(body.get("res:res:ResultCode"));
-            dto.setResultCode(body.get("res:res:resultcode"));
+            dto.setResultType(body.get("res:resulttype"));
+            dto.setResultCode(body.get("res:resultcode"));
 
             log.info("{} result code:: {}",dto.getConversationId(), dto.getResultCode());
             log.info("{} result type:: {}",dto.getConversationId(), dto.getResultType());
