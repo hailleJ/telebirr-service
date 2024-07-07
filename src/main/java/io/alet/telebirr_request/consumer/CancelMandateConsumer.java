@@ -8,8 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
-import static io.alet.telebirr_request.constants.TelebirrMessagingValue.CANCEL_MANDATE_CALLBACK_QUEUE;
-import static io.alet.telebirr_request.constants.TelebirrMessagingValue.CREATE_MANDATE_REQUEST_QUEUE;
+import static io.alet.telebirr_request.constants.TelebirrMessagingValue.*;
 
 @Component
 @Slf4j
@@ -18,7 +17,7 @@ public class CancelMandateConsumer {
 
     private final CancelMandateService cancelMandateService;
 
-    @RabbitListener(queues = CANCEL_MANDATE_CALLBACK_QUEUE, concurrency = "100")
+    @RabbitListener(queues = CANCEL_MANDATE_REQUEST_QUEUE, concurrency = "100")
     public void consume(Map<String,String> properties) {
         cancelMandateService.cancel(properties);
     }
