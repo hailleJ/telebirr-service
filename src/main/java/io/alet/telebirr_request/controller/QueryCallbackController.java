@@ -6,6 +6,7 @@ import io.alet.telebirr_request.util.XmlUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.xml.sax.SAXException;
@@ -25,7 +26,7 @@ public class QueryCallbackController {
     private final RabbitTemplate rabbitTemplate;
 
     @RequestMapping("")
-    public void query(String xml)  {
+    public void query(@RequestBody String xml)  {
         rabbitTemplate.convertAndSend(QUERY_MANDATE_CALLBACK_EXCHANGE,ROUTING_KEY,mandateInfo(xml));
     }
 
