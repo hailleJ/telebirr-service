@@ -31,8 +31,8 @@ public class SubscriptionCallbackController {
     private final RabbitTemplate rabbitTemplate;
 
     @RequestMapping("")
-    public void subCallback(@RequestBody String xml)  {
-        rabbitTemplate.convertAndSend(CREATE_MANDATE_CALLBACK_EXCHANGE,ROUTING_KEY,getCallbackDTO(xml));
+    public void subCallback(@RequestBody String xml) {
+        rabbitTemplate.convertAndSend(CREATE_MANDATE_CALLBACK_EXCHANGE, ROUTING_KEY, getCallbackDTO(xml));
     }
 
     SubscriptionCallbackDTO getCallbackDTO(String xml) {
@@ -41,21 +41,16 @@ public class SubscriptionCallbackController {
         try {
             Map<String, String> header = XmlUtil.extract(xml, "res:Header");
             Map<String, String> body = XmlUtil.extract(xml, "res:Body");
-
-            body.forEach((s, s2) -> log.info("{}/{}",s,s2));
-
+            body.forEach((s, s2) -> log.info("{}/{}", s, s2));
             SubscriptionCallbackDTO dto = new SubscriptionCallbackDTO();
             dto.setConversationId(header.get("res:conversationid"));
             dto.setResultDesc(body.get("res:resultdesc"));
             dto.setResultType(body.get("res:resulttype"));
             dto.setResultCode(body.get("res:resultcode"));
-
-            log.info("{} result code:: {}",dto.getConversationId(), dto.getResultCode());
-            log.info("{} result type:: {}",dto.getConversationId(), dto.getResultType());
-            log.info("{} result desc:: {}",dto.getConversationId(), dto.getResultDesc());
-
+            log.info("{} result code:: {}", dto.getConversationId(), dto.getResultCode());
+            log.info("{} result type:: {}", dto.getConversationId(), dto.getResultType());
+            log.info("{} result desc:: {}", dto.getConversationId(), dto.getResultDesc());
             return dto;
-
         } catch (ParserConfigurationException | IOException | SAXException e) {
             throw new RuntimeException(e);
         }
