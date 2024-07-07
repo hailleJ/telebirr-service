@@ -30,6 +30,7 @@ public class QueryCallbackController {
     }
 
     Map<String,String> mandateInfo(String xml) {
+        log.info("xml::{}",xml);
         try {
             Map<String, String> values = XmlUtil.extract(xml, "res:DirectDebitMandateInfo");
             Map<String, String> header = XmlUtil.extract(xml, "res:Header");
