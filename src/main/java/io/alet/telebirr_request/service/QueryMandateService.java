@@ -21,10 +21,14 @@ public class QueryMandateService {
 
     private final MandateClient mandateClient;
 
+    String curl = "curl -vvv -H 'Content-Type:text/xml' -k 'http://10.180.70.177:30001/payment/services/APIRequestMgrService' -d ";
     public void query(Map<String, String> properties) {
         String mandateRequest = queryRequest(properties);
-        log.info("RequestBody::{}", mandateRequest);
-        mandateClient.send(mandateRequest);
+        String body = mandateRequest.replace("\n", "").replace("\t", "").replace("\"", "'").replace("            <", "<");
+        String mandate = curl + " \"" + body + "\"";
+
+        log.info("RequestBody::{}", mandate);
+        mandateClient.send(body);
     }
 
     private String queryRequest(Map<String, String> properties) {
