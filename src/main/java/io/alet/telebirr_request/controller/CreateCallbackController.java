@@ -1,9 +1,7 @@
 package io.alet.telebirr_request.controller;
 
 
-import io.alet.telebirr_request.dto.CallbackResponse;
 import io.alet.telebirr_request.dto.callback.SubscriptionCallbackDTO;
-import io.alet.telebirr_request.service.QueryMandateService;
 import io.alet.telebirr_request.util.XmlUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,8 +14,6 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.Map;
-import java.util.Objects;
-import java.util.Random;
 
 import static io.alet.telebirr_request.constants.TelebirrMessagingValue.CREATE_MANDATE_CALLBACK_EXCHANGE;
 import static io.alet.telebirr_request.constants.TelebirrMessagingValue.ROUTING_KEY;
@@ -26,7 +22,7 @@ import static io.alet.telebirr_request.constants.TelebirrMessagingValue.ROUTING_
 @RequestMapping("/api/telebirr/callback/subscription")
 @RequiredArgsConstructor
 @Slf4j
-public class SubscriptionCallbackController {
+public class CreateCallbackController {
 
     private final RabbitTemplate rabbitTemplate;
 

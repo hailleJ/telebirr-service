@@ -38,7 +38,7 @@ public class QueryCallbackController {
             log.info("{}:: mandateID::{}", conversationID,mandateID);
             values.putAll(header);
             values.forEach((s, s2) -> log.info("{}::{}",s,s2));
-           // return values;
+            return values;
         } catch (ParserConfigurationException | IOException | SAXException e) {
             throw new RuntimeException(e);
         }
