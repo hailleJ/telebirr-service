@@ -32,12 +32,10 @@ public class CreateMandateService {
         if (Objects.equals(properties.get(MSISDN), "251925780292")) {
             referenceNumber = "STAGING_001";
         } else if (Objects.equals(properties.get(MSISDN), "251911239079")) {
-            referenceNumber = "TH_012";
+            referenceNumber = "INFO_9";
         } else if (Objects.equals(properties.get(MSISDN), "251911216238")) {
             referenceNumber = "INFO_19";
         }
-
-
 
         log.info("referenceNumber::{}", referenceNumber);
         return "<soapenv:Envelope\n" +
