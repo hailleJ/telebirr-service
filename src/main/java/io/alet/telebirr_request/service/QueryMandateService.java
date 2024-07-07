@@ -43,7 +43,7 @@ public class QueryMandateService {
                 "                    <req:CallerType>2</req:CallerType>\n" +
                 "                    <req:ThirdPartyID>" + properties.get(THIRD_PARTY_ID) + "</req:ThirdPartyID>\n" +
                 "                    <req:Password>" + properties.get(THIRD_PARTY_PASSWORD) + "</req:Password>\n" +
-                "                    <req:ResultURL>" + properties.get(TELEBIRR_PROXY_URL) + "/telebirr/query</req:ResultURL>\n" +
+                "                    <req:ResultURL>" + properties.get(TELEBIRR_PROXY_URL) + "/api/telebirr/callback/query</req:ResultURL>\n" +
                 "                </req:Caller>\n" +
                 "        <req:KeyOwner>1</req:KeyOwner>\n" +
                 "        <req:Timestamp>" + timestamp + "</req:Timestamp>\n" +
