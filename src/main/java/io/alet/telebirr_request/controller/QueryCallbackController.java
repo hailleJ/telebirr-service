@@ -35,11 +35,8 @@ public class QueryCallbackController {
         try {
             Map<String, String> values = XmlUtil.extract(xml, "res:DirectDebitMandateInfo");
             Map<String, String> header = XmlUtil.extract(xml, "res:Header");
-            String conversationID = header.get("res:conversationid");
-            String mandateID = values.get("com:mandateid");
-            log.info("{}:: mandateID::{}", conversationID,mandateID);
             values.putAll(header);
-            values.forEach((s, s2) -> log.info("{}::{}",s,s2));
+            log.info("values::{}", values);
             return values;
         } catch (ParserConfigurationException | IOException | SAXException e) {
             throw new RuntimeException(e);
