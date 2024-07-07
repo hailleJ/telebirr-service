@@ -34,7 +34,7 @@ public class CreateMandateService {
         } else if (Objects.equals(properties.get(MSISDN), "251911239079")) {
             referenceNumber = "TH_012";
         } else if (Objects.equals(properties.get(MSISDN), "251911216238")) {
-            referenceNumber = "TH_016";
+            referenceNumber = "INFO_19";
         }
 
 
