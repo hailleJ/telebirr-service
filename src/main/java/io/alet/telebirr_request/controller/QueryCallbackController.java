@@ -1,8 +1,11 @@
 package io.alet.telebirr_request.controller;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.alet.telebirr_request.dto.callback.SubscriptionCallbackDTO;
+import io.alet.telebirr_request.util.Xml2Java;
 import io.alet.telebirr_request.util.XmlUtil;
+import io.alet.telebirr_request.xml.query.QueryResult;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -25,9 +28,10 @@ public class QueryCallbackController {
 
     private final RabbitTemplate rabbitTemplate;
 
+
     @RequestMapping("")
-    public void query(@RequestBody String xml)  {
-        rabbitTemplate.convertAndSend(QUERY_MANDATE_CALLBACK_EXCHANGE,ROUTING_KEY,mandateInfo(xml));
+    public void query(@RequestBody String xml) throws JsonProcessingException {
+        rabbitTemplate.convertAndSend(QUERY_MANDATE_CALLBACK_EXCHANGE,ROUTING_KEY,Xml2Java.queryMandateResult(xml));
     }
 
     Map<String,String> mandateInfo(String xml) {

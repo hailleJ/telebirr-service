@@ -32,7 +32,6 @@ public class CreateCallbackController {
     }
 
     SubscriptionCallbackDTO getCallbackDTO(String xml) {
-
         log.info(xml);
         try {
             Map<String, String> header = XmlUtil.extract(xml, "res:Header");

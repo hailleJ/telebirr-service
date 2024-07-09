@@ -26,7 +26,7 @@ public class CancelCallbackController {
     private final RabbitTemplate rabbitTemplate;
 
     @RequestMapping("")
-    public void query(@RequestBody String xml)  {
+    public void cancel(@RequestBody String xml)  {
        log.info("cancel mandate info::{}", mandateInfo(xml));
     }
 
