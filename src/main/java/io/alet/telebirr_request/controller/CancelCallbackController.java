@@ -26,12 +26,12 @@ public class CancelCallbackController {
     private final RabbitTemplate rabbitTemplate;
 
     @RequestMapping("")
-    public void cancel(@RequestBody String xml)  {
-       log.info("cancel mandate info::{}", mandateInfo(xml));
+    public void cancel(@RequestBody String xml) {
+        log.info("cancel mandate info::{}", mandateInfo(xml));
     }
 
-    Map<String,String> mandateInfo(String xml) {
-        log.info("xml::{}",xml);
+    Map<String, String> mandateInfo(String xml) {
+        log.info("xml::{}", xml);
         try {
             Map<String, String> values = XmlUtil.extract(xml, "res:DirectDebitMandateInfo");
             Map<String, String> header = XmlUtil.extract(xml, "res:Header");

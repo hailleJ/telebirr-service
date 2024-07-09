@@ -18,8 +18,9 @@ public class Xml2Java {
 
     }
     public static String optimize(String xml) {
+        log.info(xml);
         return xml.replace("</soapenv:Body></soapenv:Envelope>","").replace("<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Body>","").replace(" xmlns:api=\"http://cps.huawei.com/cpsinterface/api_resultmgr\" xmlns:res=\"http://cps.huawei.com/cpsinterface/result\" xmlns:com=\"http://cps.huawei.com/cpsinterface/common\"","")
-                .replace("api:","").replace("com:","");
+                .replace("api:","").replace("com:","").replace("res:","");
     }
 
 }
