@@ -66,9 +66,6 @@ public class QueryMandateService {
                 "                </req:Identity>\n" +
                 "        <req:QueryDirectDebitMandateByPayerRequest>\n" +
                 "          <req:MandateStatus>03</req:MandateStatus>\n" +
-                "          <req:MandateStatus>01</req:MandateStatus>\n" +
-                "          <req:MandateStatus>02</req:MandateStatus>\n" +
-                "          <req:MandateStatus>04</req:MandateStatus>\n" +
                 "        </req:QueryDirectDebitMandateByPayerRequest>\n" +
                 "      </req:Body>\n" +
                 "    </api:Request>\n" +
