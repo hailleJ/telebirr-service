@@ -31,6 +31,7 @@ public class CreateMandateService {
 
 
 
+
         log.info("referenceNumber::{}", properties.get(REF_NUMBER));
         return "<soapenv:Envelope\n" +
                 "    xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n" +
@@ -75,7 +76,7 @@ public class CreateMandateService {
                 "                        <com:PayerReferenceNumber>" + properties.get(REF_NUMBER) + "</com:PayerReferenceNumber>\n" +
                 "                        <com:AgreedTC>1</com:AgreedTC>\n" +
                 "                        <com:FirstPaymentDate>" + properties.get(FIRST_PAYMENT_DATE) + "</com:FirstPaymentDate>\n" +
-                "                        <com:Frequency>06</com:Frequency>\n" +
+                "                        <com:Frequency>"+properties.getOrDefault(FREQUENCY,"02")+"</com:Frequency>\n" +
                 "                        <com:ExpiryDate>" + LocalDate.now().plusYears(10).toString().replace("-", "") + "</com:ExpiryDate>\n" +
                 "                </req:DirectDebitMandateInfo>\n" +
                 "                </req:CreateDirectDebitMandateByPayerRequest>\n" +
