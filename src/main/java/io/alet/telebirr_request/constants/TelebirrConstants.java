@@ -18,6 +18,7 @@ public class TelebirrConstants {
     public static final String SUBSCRIBER_ID="SUBSCRIBER_ID";
     public static final String PRODUCT_ID="PRODUCT_ID";
     public static final String FIRST_PAYMENT_DATE ="FIRST_PAYMENT_DAY";
+    public static final String REF_NUMBER ="REF_NUMBER";
 
 
 }

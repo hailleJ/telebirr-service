@@ -28,17 +28,10 @@ public class CreateMandateService {
 
     public String mandateRequest(Map<String, String> properties) {
         String timestamp = new SimpleDateFormat("yyyyMMddHHmmss", Locale.ENGLISH).format(new Date());
-        String referenceNumber =  properties.get(MSISDN).substring(3);
-        if (Objects.equals(properties.get(MSISDN), "251925780292")) {
-            referenceNumber = "STAGING_001";
-        } else if (Objects.equals(properties.get(MSISDN), "251911239079")) {
-            referenceNumber = "INFO_9";
-        } else if (Objects.equals(properties.get(MSISDN), "251911216238")) {
-            referenceNumber = "TH_012";
-        }
 
 
-        log.info("referenceNumber::{}", referenceNumber);
+
+        log.info("referenceNumber::{}", properties.get(REF_NUMBER));
         return "<soapenv:Envelope\n" +
                 "    xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n" +
                 "    xmlns:api=\"http://cps.huawei.com/cpsinterface/api_requestmgr\"\n" +
@@ -79,7 +72,7 @@ public class CreateMandateService {
                 "                        <com:IdentifierValue>" + properties.get(IDENTIFIER4_VALUE) + "</com:IdentifierValue>\n" +
                 "                    </req:Payee>\n" +
                 "                    <req:DirectDebitMandateInfo>\n" +
-                "                        <com:PayerReferenceNumber>" + referenceNumber + "</com:PayerReferenceNumber>\n" +
+                "                        <com:PayerReferenceNumber>" + properties.get(REF_NUMBER) + "</com:PayerReferenceNumber>\n" +
                 "                        <com:AgreedTC>1</com:AgreedTC>\n" +
                 "                        <com:FirstPaymentDate>" + properties.get(FIRST_PAYMENT_DATE) + "</com:FirstPaymentDate>\n" +
                 "                        <com:Frequency>06</com:Frequency>\n" +
