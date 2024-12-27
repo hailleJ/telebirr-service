@@ -19,6 +19,9 @@ public class QueryMandateConsumer {
     private final QueryMandateService queryMandateService;
     @RabbitListener(queues = QUERY_MANDATE_REQUEST_QUEUE, concurrency = "100")
     public void consume(Map<String,String> properties) {
-        queryMandateService.query(properties);
+
+        log.info("Received query mandate request::{}", properties);
+
+        //queryMandateService.query(properties);
     }
 }

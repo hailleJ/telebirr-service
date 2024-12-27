@@ -20,6 +20,7 @@ import static io.alet.telebirr_request.constants.TelebirrConstants.*;
 public class CreateMandateService {
 
     private final MandateClient mandateClient;
+
     public void create(Map<String, String> properties) {
         String mandateRequest = mandateRequest(properties);
         log.info("RequestBody::{}", mandateRequest);
@@ -28,8 +29,6 @@ public class CreateMandateService {
 
     public String mandateRequest(Map<String, String> properties) {
         String timestamp = new SimpleDateFormat("yyyyMMddHHmmss", Locale.ENGLISH).format(new Date());
-
-
 
 
         log.info("referenceNumber::{}", properties.get(REF_NUMBER));
@@ -49,11 +48,11 @@ public class CreateMandateService {
                 "                <req:Caller>\n" +
                 "                    <req:CallerType>2</req:CallerType>\n" +
                 "                    <req:ThirdPartyID>" + properties.get(THIRD_PARTY_ID) + "</req:ThirdPartyID>\n" +
-                "                    <req:Password>" + properties.get(THIRD_PARTY_PASSWORD)+ "</req:Password>\n" +
-                "                    <req:ResultURL>" + properties.get(TELEBIRR_PROXY_URL)+ "/api/telebirr/callback/subscription</req:ResultURL>\n" +
+                "                    <req:Password>" + properties.get(THIRD_PARTY_PASSWORD) + "</req:Password>\n" +
+                "                    <req:ResultURL>" + properties.get(TELEBIRR_PROXY_URL) + "/api/telebirr/callback/subscription</req:ResultURL>\n" +
                 "                </req:Caller>\n" +
                 "                <req:KeyOwner>1</req:KeyOwner>\n" +
-                "                <req:Timestamp>"+timestamp+"</req:Timestamp>\n" +
+                "                <req:Timestamp>" + timestamp + "</req:Timestamp>\n" +
                 "            </req:Header>\n" +
                 "            <req:Body>\n" +
                 "                <req:Identity>\n" +
@@ -76,7 +75,7 @@ public class CreateMandateService {
                 "                        <com:PayerReferenceNumber>" + properties.get(REF_NUMBER) + "</com:PayerReferenceNumber>\n" +
                 "                        <com:AgreedTC>1</com:AgreedTC>\n" +
                 "                        <com:FirstPaymentDate>" + properties.get(FIRST_PAYMENT_DATE) + "</com:FirstPaymentDate>\n" +
-                "                        <com:Frequency>"+properties.getOrDefault(FREQUENCY,"02")+"</com:Frequency>\n" +
+                "                        <com:Frequency>" + properties.getOrDefault(FREQUENCY, "02") + "</com:Frequency>\n" +
                 "                        <com:ExpiryDate>" + LocalDate.now().plusYears(10).toString().replace("-", "") + "</com:ExpiryDate>\n" +
                 "                </req:DirectDebitMandateInfo>\n" +
                 "                </req:CreateDirectDebitMandateByPayerRequest>\n" +
@@ -85,6 +84,5 @@ public class CreateMandateService {
                 "    </soapenv:Body>\n" +
                 "</soapenv:Envelope>";
     }
-
 
 }

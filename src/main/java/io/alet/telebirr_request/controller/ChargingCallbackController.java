@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class ChargingCallbackController {
 
-
-
     @RequestMapping
     public void callback(@RequestBody String body) {
 
